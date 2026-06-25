@@ -1,3 +1,13 @@
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  if (heroSlides.length > 1) {
+    let current = 0;
+    setInterval(() => {
+      heroSlides[current].classList.remove('active');
+      current = (current + 1) % heroSlides.length;
+      heroSlides[current].classList.add('active');
+    }, 5000);
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
