@@ -678,7 +678,7 @@ body.nav-open .nav-overlay { transform: translateX(0); }
   background: var(--white);
   transition: all 0.18s;
 }
-.sector-link:hover { background: var(--black); color: var(--white); }
+.sector-link { pointer-events: none; cursor: default; }
 
 /* =====================
    S8 — CTA (teal band)
