@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designer Brief — Fabrics Landing Page | Image Foundry</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:      #000000;
+  --white:      #FFFFFF;
+  --teal:       #2A657D;
+  --off-white:  #F6F6F6;
+  --light-grey: #DBDBDB;
+  --mid-grey:   #B7B7B7;
+  --near-black: #212529;
+  --font: 'Barlow Condensed', sans-serif;
+}
+
+body {
+  background: var(--off-white);
+  color: var(--black);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- LAYOUT ---- */
+.page { max-width: 1100px; margin: 0 auto; padding: 64px 48px 120px; }
+
+/* ---- COVER ---- */
+.cover {
+  background: var(--black);
+  padding: 72px 64px 64px;
+  margin-bottom: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 80px; height: 80px;
+  background: var(--teal);
+}
+.cover-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: block;
+  margin-bottom: 24px;
+}
+.cover-h1 {
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  text-transform: uppercase;
+  line-height: 0.93;
+  color: var(--white);
+  margin-bottom: 36px;
+}
+.cover-h1 span {
+  -webkit-text-stroke: 2px var(--white);
+  -webkit-text-fill-color: transparent;
+}
+.cover-meta {
+  display: flex;
+  gap: 48px;
+  margin-top: 12px;
+}
+.cover-meta-item { display: flex; flex-direction: column; gap: 4px; }
+.cover-meta-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid-grey);
+}
+.cover-meta-value {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.27px;
+  color: var(--white);
+}
+
+/* ---- SECTION BLOCKS ---- */
+.block {
+  background: var(--white);
+  padding: 56px 64px;
+  margin-bottom: 4px;
+}
+.block-dark {
+  background: var(--near-black);
+  padding: 56px 64px;
+  margin-bottom: 4px;
+}
+.block-teal {
+  background: var(--teal);
+  padding: 56px 64px;
+  margin-bottom: 4px;
+}
+
+.block-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: block;
+  margin-bottom: 20px;
+}
+.block-dark .block-label { color: rgba(255,255,255,0.4); }
+.block-teal .block-label { color: rgba(255,255,255,0.6); }
+
+.block-h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-bottom: 36px;
+}
+.block-dark .block-h2 { color: var(--white); }
+.block-teal .block-h2 { color: var(--white); }
+
+/* ---- ONE-LINER ---- */
+.one-liner {
+  background: var(--teal);
+  padding: 40px 64px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.one-liner-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  white-space: nowrap;
+}
+.one-liner-text {
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--white);
+  line-height: 1.1;
+}
+
+/* ---- OFFERING FLOW ---- */
+.offering-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 0;
+  align-items: center;
+}
+.offering-step {
+  background: var(--off-white);
+  padding: 32px 28px;
+  position: relative;
+}
+.offering-step-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: block;
+  margin-bottom: 12px;
+}
+.offering-step-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 10px;
+  color: var(--black);
+}
+.offering-step-body {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  color: var(--near-black);
+  line-height: 1.5;
+}
+.offering-step.highlight {
+  background: var(--black);
+}
+.offering-step.highlight .offering-step-num { color: var(--teal); }
+.offering-step.highlight .offering-step-title { color: var(--white); }
+.offering-step.highlight .offering-step-body { color: rgba(255,255,255,0.65); }
+
+.offering-arrow {
+  font-size: 24px;
+  color: var(--mid-grey);
+  padding: 0 12px;
+  text-align: center;
+}
+
+/* ---- BRAND SYSTEM ---- */
+.swatch-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 32px;
+}
+.swatch {
+  flex: 1;
+  height: 80px;
+  position: relative;
+}
+.swatch-label {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.type-specimen { display: flex; flex-direction: column; gap: 16px; }
+.type-row {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--light-grey);
+}
+.type-row:last-child { border-bottom: none; }
+.type-role {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid-grey);
+  width: 120px;
+  flex-shrink: 0;
+}
+.type-sample { font-family: var(--font); }
+
+/* ---- PAGE RHYTHM ---- */
+.rhythm-strip {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 12px;
+}
+.rhythm-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+.rhythm-colour {
+  width: 100%;
+  height: 48px;
+  position: relative;
+}
+.rhythm-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid-grey);
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ---- SECTION CARDS ---- */
+.section-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.section-card {
+  background: var(--off-white);
+  padding: 32px;
+}
+
+.section-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.section-card-num {
+  width: 36px; height: 36px;
+  background: var(--black);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.section-card-num.teal { background: var(--teal); }
+.section-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+/* Wireframe */
+.wf {
+  background: var(--light-grey);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.wf-dark { background: var(--near-black); }
+.wf-teal-bg { background: var(--teal); }
+.wf-off { background: #e8e8e8; }
+
+.wf-row {
+  display: flex;
+  gap: 2px;
+  padding: 10px;
+}
+.wf-col {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  justify-content: flex-end;
+  padding: 8px;
+}
+.wf-col.center { justify-content: center; align-items: center; }
+.wf-bar {
+  height: 8px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 1px;
+}
+.wf-bar.black { background: rgba(0,0,0,0.15); }
+.wf-bar.teal-bar { background: var(--teal); height: 4px; }
+.wf-bar.w-full { width: 100%; }
+.wf-bar.w-80 { width: 80%; }
+.wf-bar.w-60 { width: 60%; }
+.wf-bar.w-40 { width: 40%; }
+.wf-bar.w-30 { width: 30%; }
+.wf-bar.tall { height: 14px; }
+.wf-bar.fat { height: 20px; }
+.wf-img {
+  background: rgba(255,255,255,0.1);
+  flex: 1;
+  min-height: 60px;
+}
+.wf-img.dark-img { background: rgba(0,0,0,0.15); }
+
+.wf-three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  padding: 10px;
+}
+.wf-card {
+  background: rgba(255,255,255,0.5);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.wf-card.dark-card { background: rgba(0,0,0,0.08); }
+
+.wf-two-col-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2px;
+  padding: 10px;
+  align-items: center;
+}
+.wf-twelve {
+  display: grid;
+  grid-template-columns: 5fr 4fr 3fr 3fr 5fr 4fr;
+  gap: 2px;
+  padding: 10px;
+}
+.wf-gi {
+  aspect-ratio: 4/3;
+  background: rgba(255,255,255,0.35);
+  position: relative;
+}
+.wf-gi.dark-gi { background: rgba(0,0,0,0.12); }
+.wf-tag-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: rgba(255,255,255,0.4);
+}
+
+.section-card-intent {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  line-height: 1.6;
+  color: var(--near-black);
+  margin-bottom: 12px;
+}
+.section-card-note {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+/* ---- IMAGE BRIEF ---- */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.image-brief-card {
+  background: var(--off-white);
+  padding: 24px;
+}
+.image-brief-frame {
+  height: 100px;
+  background: var(--light-grey);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.image-brief-frame-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid-grey);
+  text-align: center;
+}
+.image-priority {
+  position: absolute;
+  top: 8px; right: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  color: var(--white);
+}
+.image-priority.must { background: var(--black); }
+.image-priority.nice { background: var(--mid-grey); }
+
+.image-brief-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--black);
+}
+.image-brief-desc {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.15px;
+  line-height: 1.5;
+  color: var(--near-black);
+}
+
+/* ---- WORDS ---- */
+.words-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+.words-col { padding: 32px; }
+.words-col.do { background: var(--off-white); }
+.words-col.dont { background: #f0f0f0; }
+.words-col-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+.words-col.do .words-col-label { color: var(--teal); }
+.words-col.dont .words-col-label { color: var(--mid-grey); }
+.word-tag {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  margin: 4px 4px 4px 0;
+}
+.words-col.do .word-tag {
+  background: var(--black);
+  color: var(--white);
+}
+.words-col.dont .word-tag {
+  background: var(--light-grey);
+  color: var(--mid-grey);
+  text-decoration: line-through;
+}
+
+/* ---- AUDIENCE ---- */
+.audience-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+.audience-card {
+  background: var(--off-white);
+  padding: 32px;
+}
+.audience-card.primary { border-top: 4px solid var(--black); }
+.audience-card.secondary { border-top: 4px solid var(--teal); }
+.audience-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid-grey);
+  display: block;
+  margin-bottom: 12px;
+}
+.audience-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: var(--black);
+}
+.audience-body {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  line-height: 1.6;
+  color: var(--near-black);
+}
+.audience-want {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.audience-want-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--near-black);
+}
+.audience-want-dot {
+  width: 6px; height: 6px;
+  background: var(--teal);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+
+<!-- COVER -->
+<div class="cover">
+  <span class="cover-label">Image Foundry — Designer Brief</span>
+  <h1 class="cover-h1">FABRICS<br><span>LANDING</span><br>PAGE.</h1>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Page file</span>
+      <span class="cover-meta-value">if_fabrics_landing.html</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Vertical</span>
+      <span class="cover-meta-value">Curtains &amp; Blinds</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Status</span>
+      <span class="cover-meta-value">Awaiting portfolio images</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- THE BRIEF IN ONE SENTENCE -->
+<div class="one-liner">
+  <span class="one-liner-tag">The brief</span>
+  <span class="one-liner-text">Convince fabric manufacturers and retailers that a swatch sent to Image Foundry returns marketing-ready room scenes — faster and at a fraction of what photography costs.</span>
+</div>
+
+
+<!-- WHO THIS IS FOR -->
+<div class="block">
+  <span class="block-label">Audience</span>
+  <h2 class="block-h2" style="margin-bottom:24px">WHO READS THIS PAGE</h2>
+  <div class="audience-row">
+    <div class="audience-card primary">
+      <span class="audience-tag">Primary</span>
+      <div class="audience-title">Fabric Manufacturers</div>
+      <p class="audience-body">Companies that make curtain and blind fabrics and need marketing assets to sell them into retail or direct to trade buyers. They have ranges, colourways and header styles — but no room imagery to show them in context.</p>
+      <div class="audience-want">
+        <div class="audience-want-item"><div class="audience-want-dot"></div>Need to show their full range, not just hero pieces</div>
+        <div class="audience-want-item"><div class="audience-want-dot"></div>Frustrated by the cost and lead time of photography</div>
+        <div class="audience-want-item"><div class="audience-want-dot"></div>Want images sized for web, catalogue and e-commerce</div>
+      </div>
+    </div>
+    <div class="audience-card secondary">
+      <span class="audience-tag">Secondary</span>
+      <div class="audience-title">Retail Brands</div>
+      <p class="audience-body">Retailers selling curtains and blinds who commission their own product imagery for online and catalogue use. They need to show ranges in styled environments without running a shoot for every colourway.</p>
+      <div class="audience-want">
+        <div class="audience-want-item"><div class="audience-want-dot"></div>Speed to market on new season ranges</div>
+        <div class="audience-want-item"><div class="audience-want-dot"></div>Consistency across a large product set</div>
+        <div class="audience-want-item"><div class="audience-want-dot"></div>Cost reduction vs. traditional photography</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- THE OFFERING -->
+<div class="block">
+  <span class="block-label">The offering</span>
+  <h2 class="block-h2" style="margin-bottom:24px">HOW IT WORKS</h2>
+  <div class="offering-flow">
+    <div class="offering-step">
+      <span class="offering-step-num">Client sends</span>
+      <div class="offering-step-title">Swatch</div>
+      <p class="offering-step-body">A colour-accurate reference file or a physical sample. The photograph of the swatch they are happy with sets the colour we work to.</p>
+    </div>
+    <div class="offering-arrow">→</div>
+    <div class="offering-step highlight">
+      <span class="offering-step-num">Image Foundry builds</span>
+      <div class="offering-step-title">CGI Set</div>
+      <p class="offering-step-body">Curtains or blinds matched to the fabric — weave, drape, header style — placed in a styled room. Multiple rooms, colourways and lighting from one foundation.</p>
+    </div>
+    <div class="offering-arrow">→</div>
+    <div class="offering-step">
+      <span class="offering-step-num">Client receives</span>
+      <div class="offering-step-title">Assets</div>
+      <p class="offering-step-body">Marketing-ready imagery in days. Sized for web, catalogue, e-commerce and social. No set build, no sample production, no reshoots.</p>
+    </div>
+  </div>
+  <div style="margin-top:16px; padding:20px 24px; background:var(--off-white); border-left: 4px solid var(--teal);">
+    <span style="font-size:14px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); display:block; margin-bottom:6px;">Key point for the page</span>
+    <span style="font-size:17px; font-weight:400; color:var(--near-black); line-height:1.6;">No AI mention on page. The message is speed and cost, not the tech behind it. The proof is in the imagery itself.</span>
+  </div>
+</div>
+
+
+<!-- BRAND SYSTEM -->
+<div class="block">
+  <span class="block-label">Brand system</span>
+  <h2 class="block-h2" style="margin-bottom:28px">PALETTE + TYPE</h2>
+
+  <div class="swatch-row">
+    <div class="swatch" style="background:#000000">
+      <span class="swatch-label" style="color:#fff; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">#000000<br>Black</span>
+    </div>
+    <div class="swatch" style="background:#212529">
+      <span class="swatch-label" style="color:#B7B7B7; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">#212529<br>Near-black</span>
+    </div>
+    <div class="swatch" style="background:#2A657D">
+      <span class="swatch-label" style="color:#fff; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">#2A657D<br>Teal — primary accent</span>
+    </div>
+    <div class="swatch" style="background:#DBDBDB">
+      <span class="swatch-label" style="color:#000; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">#DBDBDB<br>Light grey</span>
+    </div>
+    <div class="swatch" style="background:#F6F6F6">
+      <span class="swatch-label" style="color:#B7B7B7; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">#F6F6F6<br>Off-white</span>
+    </div>
+    <div class="swatch" style="background:#FFFFFF; border:1px solid #DBDBDB">
+      <span class="swatch-label" style="color:#B7B7B7; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">#FFFFFF<br>White</span>
+    </div>
+  </div>
+
+  <div style="margin-bottom:16px; padding:12px 16px; background:var(--off-white);">
+    <span style="font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--mid-grey);">IF brand accents (accent use only, not dominant)</span>
+    <div style="display:flex; gap:8px; margin-top:10px;">
+      <span style="background:#a60064; color:#fff; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:6px 14px;">#a60064 — IF Pink</span>
+      <span style="background:#006680; color:#fff; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:6px 14px;">#006680 — IF Blue</span>
+      <span style="background:#ecaa00; color:#000; font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:6px 14px;">#ecaa00 — IF Yellow</span>
+    </div>
+  </div>
+
+  <div class="type-specimen">
+    <div class="type-row">
+      <span class="type-role">Hero H1</span>
+      <span class="type-sample" style="font-size:52px; font-weight:800; letter-spacing:-1.2px; text-transform:uppercase; line-height:0.93;">FROM SWATCH</span>
+    </div>
+    <div class="type-row">
+      <span class="type-role">Section H2</span>
+      <span class="type-sample" style="font-size:36px; font-weight:700; letter-spacing:-1px; text-transform:uppercase;">THREE STEPS. DONE.</span>
+    </div>
+    <div class="type-row">
+      <span class="type-role">Outline text</span>
+      <span class="type-sample" style="font-size:36px; font-weight:700; letter-spacing:-1px; text-transform:uppercase; -webkit-text-stroke:2px #000; -webkit-text-fill-color:transparent;">EVERY COLOURWAY</span>
+    </div>
+    <div class="type-row">
+      <span class="type-role">Body copy</span>
+      <span class="type-sample" style="font-size:18px; font-weight:400; letter-spacing:-0.27px; line-height:1.7; color:var(--near-black);">Give us the swatch and we produce the curtains or blinds in a styled room set. No set build. No reshoots.</span>
+    </div>
+    <div class="type-row">
+      <span class="type-role">Eyebrow</span>
+      <span class="type-sample" style="font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--mid-grey);">What we do</span>
+    </div>
+    <div class="type-row">
+      <span class="type-role">CTA button</span>
+      <span class="type-sample" style="font-size:18px; font-weight:700; letter-spacing:-0.27px; text-transform:uppercase; display:inline-block; border:1px solid #000; padding:12px 32px;">Let's talk ————</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- PAGE RHYTHM -->
+<div class="block">
+  <span class="block-label">Page structure</span>
+  <h2 class="block-h2" style="margin-bottom:28px">SECTION RHYTHM</h2>
+  <p style="font-size:16px; font-weight:400; color:var(--near-black); margin-bottom:28px; line-height:1.6;">The background colour alternates deliberately. Dark hero drops into white content, building to a teal CTA band, then dark footer. No two dark sections sit adjacent — that rhythm is non-negotiable.</p>
+
+  <div class="rhythm-strip">
+    <div class="rhythm-block">
+      <div class="rhythm-colour" style="background:#000"></div>
+      <span class="rhythm-label">S1<br>Hero<br>Black</span>
+    </div>
+    <div class="rhythm-block">
+      <div class="rhythm-colour" style="background:#fff; border:1px solid #dbdbdb"></div>
+      <span class="rhythm-label">S2<br>Problem<br>White</span>
+    </div>
+    <div class="rhythm-block">
+      <div class="rhythm-colour" style="background:#fff; border:1px solid #dbdbdb"></div>
+      <span class="rhythm-label">S3<br>What we do<br>White</span>
+    </div>
+    <div class="rhythm-block">
+      <div class="rhythm-colour" style="background:#DBDBDB"></div>
+      <span class="rhythm-label">S4<br>Process<br>Lt grey</span>
+    </div>
+    <div class="rhythm-block">
+      <div class="rhythm-colour" style="background:#F6F6F6; border:1px solid #dbdbdb"></div>
+      <span class="rhythm-label">S5<br>Why it sells<br>Off-white</span>
+    </div>
+    <div class="rhythm-block">
+      <div class="rhythm-colour" style="background:#fff; border:1px solid #dbdbdb"></div>
+      <span class="rhythm-label">S6<br>Colourway<br>White</span>
+    </div>
+    <div class="rhythm-block">
+      <div class="rhythm-colour" style="background:#fff; border:1px solid #dbdbdb"></div>
+      <span class="rhythm-label">S7<br>Gallery<br>White</span>
+    </div>
+    <div class="rhythm-block">
+      <div class="rhythm-colour" style="background:#F6F6F6; border:1px solid #dbdbdb"></div>
+      <span class="rhythm-label">Strip<br>Products<br>Off-white</span>
+    </div>
+    <div class="rhythm-block">
+      <div class="rhythm-colour" style="background:#2A657D"></div>
+      <span class="rhythm-label">S8<br>CTA<br>Teal</span>
+    </div>
+    <div class="rhythm-block">
+      <div class="rhythm-colour" style="background:#000"></div>
+      <span class="rhythm-label">Footer<br>&nbsp;<br>Black</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- SECTION BREAKDOWN -->
+<div class="block">
+  <span class="block-label">Section by section</span>
+  <h2 class="block-h2" style="margin-bottom:24px">WHAT EACH SECTION DOES</h2>
+
+  <div class="section-cards">
+
+    <!-- S1 HERO -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-num">S1</div>
+        <span class="section-card-title">Hero</span>
+      </div>
+      <div class="wf wf-dark" style="height:120px">
+        <div style="padding:12px 14px; padding-top:32px; display:flex; flex-direction:column; gap:6px; justify-content:flex-end; height:100%;">
+          <div class="wf-bar w-30" style="height:5px; background:rgba(255,255,255,0.3)"></div>
+          <div class="wf-bar w-80 fat" style="background:rgba(255,255,255,0.7)"></div>
+          <div class="wf-bar w-60 fat" style="background:rgba(255,255,255,0.5)"></div>
+          <div class="wf-bar w-40" style="height:6px; background:rgba(255,255,255,0.35); margin-top:6px"></div>
+        </div>
+      </div>
+      <p class="section-card-intent">Full-screen room image with curtains or blinds. Headline punches the core offer. Subhead is one sentence. This is the only section that does not need to explain — the image does the work.</p>
+      <span class="section-card-note">Image: hero portfolio shot — curtains styled in room, full bleed</span>
+    </div>
+
+    <!-- S2 PROBLEM -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-num">S2</div>
+        <span class="section-card-title">The Problem</span>
+      </div>
+      <div class="wf wf-off" style="height:120px">
+        <div class="wf-row" style="height:100%; align-items:stretch; padding:0; gap:0;">
+          <div class="wf-col" style="background:#fff; padding:14px;">
+            <div class="wf-bar black w-40" style="height:5px"></div>
+            <div class="wf-bar black w-80" style="height:12px"></div>
+            <div class="wf-bar black w-60" style="height:12px"></div>
+            <div class="wf-bar black w-full" style="height:5px; margin-top:8px"></div>
+            <div class="wf-bar black w-80" style="height:5px"></div>
+          </div>
+          <div class="wf-img dark-img" style="flex:1"></div>
+        </div>
+      </div>
+      <p class="section-card-intent">Sets up the pain. Photography for soft furnishings is expensive, slow and demands sample production before a single shot. The reader should feel recognised here — this is their problem.</p>
+      <span class="section-card-note">Image: swatch / design table — works well as a contrast to the hero</span>
+    </div>
+
+    <!-- S3 WHAT WE DO -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-num">S3</div>
+        <span class="section-card-title">What We Do</span>
+      </div>
+      <div class="wf wf-off" style="height:120px">
+        <div class="wf-row" style="height:100%; align-items:stretch; padding:0; gap:0;">
+          <div class="wf-img dark-img" style="flex:1"></div>
+          <div class="wf-col" style="background:#fff; padding:14px;">
+            <div class="wf-bar black w-40" style="height:5px"></div>
+            <div class="wf-bar black w-80" style="height:12px"></div>
+            <div class="wf-bar black w-60" style="height:12px"></div>
+            <div class="wf-bar black w-full" style="height:5px; margin-top:8px"></div>
+            <div class="wf-bar black w-80" style="height:5px"></div>
+          </div>
+        </div>
+      </div>
+      <p class="section-card-intent">Flipped 50/50 — image leads left this time, breaking the visual rhythm. Short, confident copy. The headline does the job: "We build the finished look." No over-explanation.</p>
+      <span class="section-card-note">Image: CGI curtains — styled room, clear and clean</span>
+    </div>
+
+    <!-- S4 PROCESS -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-num teal">S4</div>
+        <span class="section-card-title">How It Works</span>
+      </div>
+      <div class="wf" style="height:120px; background:#DBDBDB">
+        <div style="padding:8px 10px 0;">
+          <div style="height:10px; background:rgba(0,0,0,0.1); width:50%; margin-bottom:8px;"></div>
+        </div>
+        <div class="wf-three-col">
+          <div class="wf-card">
+            <div class="wf-bar teal-bar w-30"></div>
+            <div class="wf-bar black w-80" style="height:8px"></div>
+            <div class="wf-bar black w-full" style="height:4px"></div>
+            <div class="wf-bar black w-80" style="height:4px"></div>
+          </div>
+          <div class="wf-card" style="border-top: 3px solid #2A657D;">
+            <div class="wf-bar teal-bar w-30"></div>
+            <div class="wf-bar black w-80" style="height:8px"></div>
+            <div class="wf-bar black w-full" style="height:4px"></div>
+            <div class="wf-bar black w-80" style="height:4px"></div>
+          </div>
+          <div class="wf-card">
+            <div class="wf-bar teal-bar w-30"></div>
+            <div class="wf-bar black w-80" style="height:8px"></div>
+            <div class="wf-bar black w-full" style="height:4px"></div>
+            <div class="wf-bar black w-80" style="height:4px"></div>
+          </div>
+        </div>
+      </div>
+      <p class="section-card-intent">Three cards on a light-grey ground. Each step is blunt: send swatch, we build it, you get assets. Middle card has a teal top bar to break the monotony. No waffle.</p>
+      <span class="section-card-note">No images needed — copy-driven section</span>
+    </div>
+
+    <!-- S5 WHY IT SELLS -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-num">S5</div>
+        <span class="section-card-title">Why It Sells</span>
+      </div>
+      <div class="wf" style="height:120px; background:#F6F6F6">
+        <div class="wf-row" style="height:100%; align-items:stretch; padding:0; gap:0;">
+          <div style="flex:1; padding:12px 14px; border-right:1px solid #DBDBDB; background:#F6F6F6; display:flex; flex-direction:column; justify-content:flex-end; gap:6px;">
+            <div class="wf-bar black w-40" style="height:5px"></div>
+            <div class="wf-bar black w-80" style="height:12px"></div>
+            <div class="wf-bar black w-full" style="height:4px"></div>
+          </div>
+          <div style="flex:1; background:#F6F6F6; display:flex; flex-direction:column; justify-content:space-around; padding:8px 12px;">
+            <div style="border-bottom:1px solid #DBDBDB; padding-bottom:6px; display:flex; flex-direction:column; gap:4px;">
+              <div class="wf-bar" style="background:#2A657D; width:20%; height:3px"></div>
+              <div class="wf-bar black w-60" style="height:6px"></div>
+            </div>
+            <div style="border-bottom:1px solid #DBDBDB; padding-bottom:6px; display:flex; flex-direction:column; gap:4px;">
+              <div class="wf-bar" style="background:#2A657D; width:20%; height:3px"></div>
+              <div class="wf-bar black w-60" style="height:6px"></div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div class="wf-bar" style="background:#2A657D; width:20%; height:3px"></div>
+              <div class="wf-bar black w-60" style="height:6px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="section-card-intent">Left side makes the emotional case — buyers decide faster when they can see the finished result. Right side lists three concrete outputs: one fabric every room, every colourway one cost, finish variations.</p>
+      <span class="section-card-note">No images — left col is text, right col is three stacked points</span>
+    </div>
+
+    <!-- S6 COLOURWAY -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-num teal">S6</div>
+        <span class="section-card-title">Colourway Panel</span>
+      </div>
+      <div class="wf" style="height:120px; background:#fff;">
+        <div style="padding:10px 12px 0; margin-bottom:6px;">
+          <div class="wf-bar black w-60" style="height:10px"></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 32px 1fr; gap:2px; padding:0 10px; align-items:center;">
+          <div style="background:#DBDBDB; aspect-ratio:16/7; position:relative;">
+            <div style="position:absolute; bottom:0; left:0; right:0; height:12px; background:rgba(0,0,0,0.5);"></div>
+          </div>
+          <div style="text-align:center; font-size:14px; color:var(--mid-grey);">→</div>
+          <div style="background:#DBDBDB; aspect-ratio:16/7; position:relative;">
+            <div style="position:absolute; bottom:0; left:0; right:0; height:12px; background:#2A657D;"></div>
+          </div>
+        </div>
+      </div>
+      <p class="section-card-intent">The commercial proof. Same room scene, two colourways side by side. Arrow between them. Label below reads "Same CGI scene / Different colourway — same cost." This single image makes the cost argument better than any copy.</p>
+      <span class="section-card-note">Must-have images: two colourway variants of the same fabric in the same room</span>
+    </div>
+
+    <!-- S7 GALLERY -->
+    <div class="section-card" style="grid-column: span 2;">
+      <div class="section-card-header">
+        <div class="section-card-num">S7</div>
+        <span class="section-card-title">Gallery — 12-column showreel grid</span>
+      </div>
+      <div class="wf" style="height:100px; background:#fff;">
+        <div class="wf-twelve" style="padding:8px;">
+          <div class="wf-gi dark-gi"><div class="wf-tag-bar"></div></div>
+          <div class="wf-gi dark-gi"><div class="wf-tag-bar"></div></div>
+          <div class="wf-gi dark-gi"><div class="wf-tag-bar"></div></div>
+          <div class="wf-gi dark-gi"><div class="wf-tag-bar"></div></div>
+          <div class="wf-gi dark-gi"><div class="wf-tag-bar"></div></div>
+          <div class="wf-gi dark-gi"><div class="wf-tag-bar"></div></div>
+        </div>
+      </div>
+      <p class="section-card-intent" style="margin-top:16px;">Six images in a deliberately uneven 12-column grid: spans of 5-4-3 / 3-5-4. The asymmetry prevents the showreel looking like a uniform tile grid. Each cell carries a product-type tag (Pencil Pleat, Roller Blinds etc) and reveals a hover overlay. The gallery is the proof of range — it should show six distinctly different room types and/or product styles.</p>
+      <span class="section-card-note">6 images needed — curtains and blinds, different room types, different header/finish styles</span>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- IMAGE BRIEF -->
+<div class="block">
+  <span class="block-label">Portfolio assets</span>
+  <h2 class="block-h2" style="margin-bottom:24px">IMAGES NEEDED</h2>
+  <p style="font-size:16px; font-weight:400; color:var(--near-black); margin-bottom:28px; line-height:1.6;">All placeholder grey boxes in the HTML need replacing. Priority shots listed below. Images that do not exist yet are content creation opportunities — see the original brief for full suggestions.</p>
+
+  <div class="image-grid">
+    <div class="image-brief-card">
+      <div class="image-brief-frame">
+        <div class="image-brief-frame-label">Full bleed<br>curtains or blinds in room</div>
+        <span class="image-priority must">Must have</span>
+      </div>
+      <div class="image-brief-title">Hero image</div>
+      <p class="image-brief-desc">Full-screen. Curtains or blinds in a styled room. High drama. The image that makes the visitor stay. Suggest: pencil pleat floor-to-ceiling in a warm living room, dusk light.</p>
+    </div>
+    <div class="image-brief-card">
+      <div class="image-brief-frame">
+        <div class="image-brief-frame-label">Same fabric<br>two colourways<br>same room</div>
+        <span class="image-priority must">Must have</span>
+      </div>
+      <div class="image-brief-title">Colourway pair</div>
+      <p class="image-brief-desc">Two images of identical composition, different colourways. This is the commercial proof section — it makes the cost-per-colourway argument without a word of copy. Create these first.</p>
+    </div>
+    <div class="image-brief-card">
+      <div class="image-brief-frame">
+        <div class="image-brief-frame-label">6 portfolio shots<br>varied types<br>varied rooms</div>
+        <span class="image-priority must">Must have</span>
+      </div>
+      <div class="image-brief-title">Gallery (×6)</div>
+      <p class="image-brief-desc">One each of: pencil pleat, eyelet, wave curtain, roman blind, roller blind, vertical blind. Different rooms. Mix warm and cool tones. These fill the 12-col showreel grid.</p>
+    </div>
+    <div class="image-brief-card">
+      <div class="image-brief-frame">
+        <div class="image-brief-frame-label">Fabric / design table<br>swatches visible</div>
+        <span class="image-priority must">Must have</span>
+      </div>
+      <div class="image-brief-title">Problem section</div>
+      <p class="image-brief-desc">The contrast to the hero — raw material, not finished product. Works well as a moodier, less polished image to illustrate the "before" state of a fabric before it becomes a room scene.</p>
+    </div>
+    <div class="image-brief-card">
+      <div class="image-brief-frame">
+        <div class="image-brief-frame-label">CGI curtains<br>clean room<br>product-forward</div>
+        <span class="image-priority must">Must have</span>
+      </div>
+      <div class="image-brief-title">What we do section</div>
+      <p class="image-brief-desc">The "after" — finished curtains or blinds in a clean styled set. Should feel precise and considered, not decorative. This image sits in the explanation section so it must read immediately.</p>
+    </div>
+    <div class="image-brief-card">
+      <div class="image-brief-frame">
+        <div class="image-brief-frame-label">Sheer fabric<br>day + night<br>light through fabric</div>
+        <span class="image-priority nice">Nice to have</span>
+      </div>
+      <div class="image-brief-title">Day / night pair</div>
+      <p class="image-brief-desc">Shows light transmission — a sheer blind or voile in the same room, daylight and evening. Demonstrates a capability that photography struggles with and CGI handles effortlessly.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- WORDS -->
+<div class="block">
+  <span class="block-label">Copy rules</span>
+  <h2 class="block-h2" style="margin-bottom:0">TONE ON THE PAGE</h2>
+  <p style="font-size:16px; font-weight:400; color:var(--near-black); margin:20px 0 24px; line-height:1.6;">Short. Confident. No hedging. If it sounds like a brochure, it is wrong. If it sounds like a person who knows what they are doing, it is right.</p>
+  <div class="words-grid">
+    <div class="words-col do">
+      <span class="words-col-label">Use</span>
+      <span class="word-tag">Days</span>
+      <span class="word-tag">Marketing-ready</span>
+      <span class="word-tag">Styled room</span>
+      <span class="word-tag">Swatch</span>
+      <span class="word-tag">No reshoots</span>
+      <span class="word-tag">Let's talk</span>
+      <span class="word-tag">Tell us about your project</span>
+      <span class="word-tag">Full range</span>
+      <span class="word-tag">Colourways</span>
+      <span class="word-tag">Colour-accurate</span>
+    </div>
+    <div class="words-col dont">
+      <span class="words-col-label">Never</span>
+      <span class="word-tag">Visualisations</span>
+      <span class="word-tag">Emotive</span>
+      <span class="word-tag">Engage</span>
+      <span class="word-tag">Immerse</span>
+      <span class="word-tag">Contact us</span>
+      <span class="word-tag">AI-generated</span>
+      <span class="word-tag">Cutting-edge</span>
+      <span class="word-tag">State-of-the-art</span>
+      <span class="word-tag">Innovative</span>
+      <span class="word-tag">Stunning</span>
+    </div>
+  </div>
+  <div style="margin-top:4px; background:var(--off-white); padding:20px 24px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;">
+    <div>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--teal); display:block; margin-bottom:8px;">Punctuation</span>
+      <span style="font-size:15px; font-weight:400; color:var(--near-black); line-height:1.6;">No em dashes. No Oxford comma. No exclamation marks. UK English throughout.</span>
+    </div>
+    <div>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--teal); display:block; margin-bottom:8px;">AI mention</span>
+      <span style="font-size:15px; font-weight:400; color:var(--near-black); line-height:1.6;">Not on this page. The message is speed and cost. The proof is in the imagery.</span>
+    </div>
+    <div>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--teal); display:block; margin-bottom:8px;">Pricing</span>
+      <span style="font-size:15px; font-weight:400; color:var(--near-black); line-height:1.6;">Not on the page. Quote follows once swatches are received. CTA drives to a conversation, not a price list.</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER NOTE -->
+<div style="background:var(--black); padding:40px 64px; display:flex; justify-content:space-between; align-items:center;">
+  <div>
+    <span style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal); display:block; margin-bottom:6px;">Image Foundry</span>
+    <span style="font-size:22px; font-weight:700; letter-spacing:-0.4px; text-transform:uppercase; color:var(--white);">Designer Brief — Fabrics Landing Page</span>
+  </div>
+  <div style="text-align:right;">
+    <span style="font-size:13px; font-weight:400; color:var(--mid-grey); display:block;">Reference file</span>
+    <span style="font-size:16px; font-weight:700; letter-spacing:-0.2px; color:var(--white);">if_fabrics_landing.html</span>
+  </div>
+</div>
+
+
+</div><!-- /page -->
+</body>
+</html>

@@ -201,7 +201,7 @@ body.nav-open .nav-overlay { transform: translateX(0); }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.01);
 }
 
 
@@ -555,7 +555,7 @@ body.nav-open .nav-overlay { transform: translateX(0); }
 ===================== */
 .section-gallery {
   background: var(--white);
-  padding: 100px 0;
+  padding: 50px 0 100px;
 }
 
 .gallery-header {
@@ -856,9 +856,9 @@ body::before {
   }
   .section-split--reverse > * { direction: ltr; }
   .section-split .split-text,
-  .section-split--reverse .split-text { padding: 64px 20px; order: 2; }
+  .section-split--reverse .split-text { padding: 64px 20px; order: 1; }
   .section-split .split-image,
-  .section-split--reverse .split-image { order: 1; min-height: 300px; }
+  .section-split--reverse .split-image { order: 2; min-height: 300px; }
   .split-image-bg { min-height: 300px; }
 
   /* Benefits: single column */
